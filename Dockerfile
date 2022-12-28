@@ -7,5 +7,5 @@ RUN mvn clean package -Dmaven.test.skip=true
 FROM openjdk:17
 RUN mkdir /opt/note
 WORKDIR /opt/note
-COPY --from=buildstage /opt/note/target/easy-notes-1.0.0.jar app.jar
+COPY --from=buildstage /opt/note/target/poc-bullla-1.0.0.jar app.jar
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar","app.jar"]
