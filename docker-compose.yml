@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  backend-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 8080:8080
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '50m'
+    networks:
+      - apipoc-net
+networks:
+  apipoc-net:
+    driver: bridge
+
